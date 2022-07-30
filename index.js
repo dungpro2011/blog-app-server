@@ -9,7 +9,8 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const URL = process.env.MONGODB_URI;
+const URL = "mongodb+srv://admin:dung12345678@cluster0.3yrkzwx.mongodb.net/?retryWrites=true&w=majority";
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true, limit: '30mb'}));
