@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5500;
+const PORT = process.env.PORT || 9000;
 const URL = process.env.MONGODB_URI;
 
 app.use(bodyParser.json());
