@@ -18,7 +18,7 @@ app.use(cors());
 
 app.use('/post', posts);
 
-mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1})
     .then(() =>{
         console.log('Connected to DB');
         app.listen(PORT, ()=> {
