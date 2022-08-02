@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const URL = process.env.MONGODB_URI
+const URI = process.env.MONGODB_URI.toString();
 
 
 app.use(bodyParser.json());
@@ -18,7 +18,7 @@ app.use(cors());
 
 app.use('/post', posts);
 
-mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true})
     .then(() =>{
         console.log('Connected to DB');
         app.listen(PORT, ()=> {
