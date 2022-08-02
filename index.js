@@ -3,13 +3,13 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import posts from './routers/posts.js'
 import mongoose from 'mongoose';
-// import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
-// dotenv.config();
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const URL = "mongodb+srv://admin:dung12345678@cluster0.3yrkzwx.mongodb.net/?retryWrites=true&w=majority";
+const URL = process.env.MONGODB_URI
 
 
 app.use(bodyParser.json());
