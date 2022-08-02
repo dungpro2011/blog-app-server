@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const URI = process.env.MONGODB_URI.toString();
+const URI = 'mongodb+srv://admin:dung12345678@cluster0.3yrkzwx.mongodb.net/?retryWrites=true&w=majority';
 
 
 app.use(bodyParser.json());
