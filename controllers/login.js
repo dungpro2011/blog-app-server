@@ -22,7 +22,7 @@ export const userLogin = async (req, res) => {
         }
         else {
             console.log('failed');
-            res.status(200).json("Login_Failed");
+            res.status(200).json(["Login_Failed"]);
         }
     } catch (error) {
         res.status(400).json({ err: error });
