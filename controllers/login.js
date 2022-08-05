@@ -10,15 +10,15 @@ export const userLogin = async (req, res) => {
         //     password: 'test'
         // })
         // user.save();
-        // const user = {name: 'test', password: 'test'};
+        // const user = {name: 'nam', password: 'test'};
         const user = req.body;
-        console.log('User: ', user);
+        console.log('Client-sent: ', user);
         const users = await UserModel.findOne({ name: user.name, password: user.password });
         console.log('login name:', users);
 
         if (users && users.name == user.name && users.password == user.password) {
             console.log('Success');
-            res.status(200).json("Login success");
+            res.status(200).json(["Login success", users.name]);
         }
         else {
             console.log('failed');
@@ -32,6 +32,7 @@ export const userLogin = async (req, res) => {
 export const register = (async (req, res) => {
     try {
         const user = req.body;
+        console.log('User registered:', user);
         const userName = await UserModel.findOne({ name: user.name });
         console.log('User: ', user.name);
         console.log('User: ', userName);
@@ -39,7 +40,7 @@ export const register = (async (req, res) => {
         if (!userName) {
             const newUser = new UserModel(user);
             await newUser.save();
-            res.status(200).json("Register success");
+            res.status(200).json(["Register success", user.name]);
             console.log('Success');
         } else {
             res.status(200).json("Register failed");
@@ -47,6 +48,6 @@ export const register = (async (req, res) => {
         }
 
     } catch (error) {
-        res.status(401).json({ err: error });
+        res.status(400).json({ err: error });
     }
 });
