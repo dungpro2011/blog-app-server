@@ -18,11 +18,11 @@ export const userLogin = async (req, res) => {
 
         if (users && users.name == user.name && users.password == user.password) {
             console.log('Success');
-            res.status(200).json(["Login success", users.name]);
+            res.status(200).json(["Login_Success", users.name]);
         }
         else {
             console.log('failed');
-            res.status(200).json("Login failed");
+            res.status(200).json("Login_Failed");
         }
     } catch (error) {
         res.status(400).json({ err: error });
